@@ -32,6 +32,17 @@ class Solution:
                 _max = cur
         return _max
 
+    def maxSubArray_dp(self, nums: List[int]) -> int:
+
+        dp = [0] * len(nums)
+        dp[0] = nums[0]
+
+        for i in range(1, len(nums)):
+            dp[i] = max(nums[i], dp[i - 1] + nums[i])
+
+        return max(dp)
+
+
 
 s = Solution()
-print(s.maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4])) # [4, -1, 2, 1] -> 6
+print(s.maxSubArray_dp([-2, 1, -3, 4, -1, 2, 1, -5, 4]))  # [4, -1, 2, 1] -> 6
