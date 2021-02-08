@@ -21,7 +21,36 @@ class Solution:
                     dp[i + c] = cur
         return dp[-1]
 
+    def coinChange_v1(self, coins: List[int], amount: int) -> int:
+
+        min_coin = min(coins)
+
+        def dfs(amount, memo={}) -> int:
+            """
+            计算对应 amount 所需的最少钱币数量（可能为 -1)
+            """
+            if amount in memo:
+                return memo[amount]
+
+            if amount == 0:
+                return 0
+
+            if amount < min_coin:
+                return - 1
+
+            res = [dfs(amount - c, memo) for c in coins]
+            res = [r for r in res if r != -1]
+            if len(res) == 0:
+                memo[amount] = -1
+                return -1
+            else:
+                memo[amount] = min(res) + 1
+                return memo[amount]
+
+        return dfs(amount)
+
 
 s = Solution()
-print(s.coinChange([1, 2, 5], 11))  # 3
-print(s.coinChange([186, 419, 83, 408], 6249))  # 20
+print(s.coinChange_v1([1, 2, 5], 11))  # 3
+print(s.coinChange_v1([12, 9], 20))  # -1
+print(s.coinChange_v1([186, 419, 83, 408], 6249))  # 20
