@@ -17,3 +17,9 @@ A bunch of LeetCode problems and their solution (in Python 3.8)
 
 * [877. Stone Game](Problems/877.%20Stone%20Game.py)
 * [1025. Divisor Game](Problems/1025.%20Divisor%20Game.py)
+
+### House Robber
+
+* [198. House Robber](Problems/198.%20House%20Robber.py)
+* [213. House Robber II](Problems/213.%20House%20Robber%20II.py)
+* [337. House Robber III](Problems/337.%20House%20Robber%20III.py)
