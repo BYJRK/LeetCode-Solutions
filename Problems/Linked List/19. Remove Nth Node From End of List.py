@@ -1,6 +1,9 @@
 # https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 
-from listnode import ListNode
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
 
 class Solution:
@@ -28,9 +31,3 @@ class Solution:
             i += 1
         prev.next = p.next
         return head
-
-
-s = Solution()
-l = ListNode.create(1, 2, 3, 4, 5)
-l = s.removeNthFromEnd_v1(l, 5)
-ListNode.display(l)

@@ -1,6 +1,9 @@
 # https://leetcode.com/problems/add-two-numbers/
 
-from listnode import ListNode
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
 
 class Solution:
@@ -27,21 +30,3 @@ class Solution:
             else:
                 break
         return res
-
-    def printNumber(self, node: ListNode) -> None:
-        res = []
-        p = node
-        while p != None:
-            res.insert(0, p.val)
-            p = p.next
-        print(''.join([str(c) for c in res]))
-
-
-n1 = ListNode.create(2, 4, 3)
-n2 = ListNode.create(5, 6, 4)
-n3 = ListNode(1)
-n4 = ListNode.create(9, 9, 9, 9)
-
-s = Solution()
-s.printNumber(s.addTwoNumbers(n1, n2))
-s.printNumber(s.addTwoNumbers(n3, n4))

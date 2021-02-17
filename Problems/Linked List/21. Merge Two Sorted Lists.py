@@ -1,6 +1,9 @@
 # https://leetcode.com/problems/merge-two-sorted-lists/
 
-from listnode import ListNode
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
 
 class Solution:
@@ -44,10 +47,3 @@ class Solution:
         else:
             l2.next = self.mergeTwoLists_v2(l1, l2.next)
             return l2
-
-
-s = Solution()
-n1 = ListNode.create(1, 4, 7)
-n2 = ListNode.create(4, 5, 6)
-ListNode.display(s.mergeTwoLists_v1(n1, n2))
-ListNode.display(s.mergeTwoLists_v2(n1, n2))
