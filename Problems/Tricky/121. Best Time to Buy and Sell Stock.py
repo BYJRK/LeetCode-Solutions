@@ -56,9 +56,6 @@ class Solution:
 
 
 s = Solution()
-print(s.maxProfit([1]))  # 0
-print(s.maxProfit([2, 1]))  # 0
-print(s.maxProfit([1, 2]))  # 1
 print(s.maxProfit([1, 4, 2]))  # 3
 print(s.maxProfit([7, 1, 5, 3, 6, 4]))  # 5
 print(s.maxProfit([7, 6, 4, 3, 1]))  # 0
