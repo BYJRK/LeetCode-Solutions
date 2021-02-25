@@ -39,16 +39,38 @@ class Solution:
             return []
         return [' '.join(res) for res in dp[-1]]
 
+    def wordBreak_dfs(self, s: str, wordDict: List[str]) -> List[str]:
+
+        def dfs(s: str, memo={}):
+            if s in memo:
+                return memo[s]
+            if len(s) == 0:
+                return [[]]
+
+            res = []
+            for w in wordDict:
+                if s.startswith(w):
+                    tmp = s[len(w):]
+                    combos = dfs(tmp, memo)
+                    for combo in combos:
+                        res.append([w] + combo)
+
+            memo[s] = res
+
+            return res
+
+        return dfs(s)
+
 
 s = Solution()
 
-print(s.wordBreak('catsanddog', ["cat", "cats", "and", "sand", "dog"]))
+print(s.wordBreak_dfs('catsanddog', ["cat", "cats", "and", "sand", "dog"]))
 
-print(s.wordBreak('pineapplepenapple', [
+print(s.wordBreak_dfs('pineapplepenapple', [
       "apple", "pen", "applepen", "pine", "pineapple"]))
 
-text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-words = ["a", "aa", "aaa", "aaaa", "aaaaa", "aaaaaa",
-         "aaaaaaa", "aaaaaaaa", "aaaaaaaaa", "aaaaaaaaaa"]
+# text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+# words = ["a", "aa", "aaa", "aaaa", "aaaaa", "aaaaaa",
+#          "aaaaaaa", "aaaaaaaa", "aaaaaaaaa", "aaaaaaaaaa"]
 
-print(s.wordBreak(text, words))
+# print(s.wordBreak(text, words))

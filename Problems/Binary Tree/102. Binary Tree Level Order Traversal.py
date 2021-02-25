@@ -17,9 +17,9 @@ class Solution:
         res = []
 
         queue = [root]
+        curNum = 1  # 当前层还有多少个节点需要遍历
         nextNum = 0  # 下一层有多少个节点
-        curNum = 1  # 当前层h还有多少个节点需要遍历
-        tmp = []
+        curLayer = []
 
         while len(queue) > 0:
             # 如果当前层还有节点要遍历
@@ -32,14 +32,17 @@ class Solution:
                     queue.append(node.right)
                     nextNum += 1
                 curNum -= 1
-                tmp.append(node.val)
+                curLayer.append(node.val)
                 queue.pop(0)
+
             # 如果已经没有要遍历的节点了，移动到下一层
+            # 注意这里不能写 else，因为有可能正好在上面将 queue 中最后一个 pop 掉了
+            # 此时 tmp 里面还有内容没有追加
             if curNum == 0:
-                res.append(tmp)
+                res.append(curLayer)
                 curNum = nextNum
                 nextNum = 0
-                tmp = []
+                curLayer = []
 
         return res
 
