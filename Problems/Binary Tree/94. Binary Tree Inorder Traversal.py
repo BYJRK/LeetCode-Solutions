@@ -11,7 +11,7 @@ class TreeNode:
 
 
 class Solution:
-    def inorderTraversal_recursive(self, root: TreeNode) -> List[int]:
+    def inorderTraversal_dfs(self, root: TreeNode) -> List[int]:
         res = []
 
         def dfs(node):
