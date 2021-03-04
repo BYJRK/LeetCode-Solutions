@@ -12,7 +12,7 @@ class Solution:
         def valid(num, row, col, board) -> bool:
             '''
             检查在指定位置输入数字是否可行
-            这里假定 board[row][col] == '.'
+            这里假定 board[row][col] == '.'，也就是当前位置是空的
             所以不需要在遍历的时候检查是否和给定位置重合
             '''
             assert board[row][col] == '.'
@@ -47,6 +47,7 @@ class Solution:
                 num = str(i)
                 if valid(num, r, c, board):
                     board[r][c] = num
+                    # 如果就这么递归地填写下去，最终可以填满
                     if solve(board):
                         return True
                     # 否则将当前位置的数字重新设为空
