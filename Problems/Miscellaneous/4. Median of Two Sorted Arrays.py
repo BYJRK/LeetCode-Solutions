@@ -11,12 +11,10 @@ class Solution:
         r1, r2 = len(nums1) - 1, len(nums2) - 1
 
         def findMedian(l1, r1, l2, r2):
-            m1 = (r1 - l1) // 2 + l1
-            m2 = (r2 - l2) // 2 + l2
-            if m2<len(nums2)-1 and nums1[m1]<=nums2[m2+1] or \
-                m2==len(nums2)-1 and nums2[m2]<=nums1[m1] or \
-                m1<len(nums1)-1 and nums1[m1+1]>=nums2[m2]:
-                pass
+            m1 = (r1 + l1) // 2
+            m2 = (r2 + l2) // 2
+
+        # unfinished
 
     def findMedianSortedArrays_v2(self, nums1: List[int],
                                   nums2: List[int]) -> float:
@@ -56,4 +54,4 @@ class Solution:
 
 
 s = Solution()
-print(s.findMedianSortedArrays([1, 3, 5], [2, 4, 6]))
+print(s.findMedianSortedArrays_v1([1, 3, 5], [2, 4, 6]))
