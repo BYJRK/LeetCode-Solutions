@@ -11,19 +11,18 @@ class Solution:
         if head == None or head.next == None:
             return head
         res = ListNode(0)
-        p1 = head
-        while p1 != None:
-            val = p1.val
+        p_ori = head
+        while p_ori != None:
             pre = res
-            p2 = res.next
-            while p2 != None and val > p2.val:
-                pre = p2
-                p2 = p2.next
+            p_res = res.next
+            while p_res != None and p_ori.val > p_res.val:
+                pre = p_res
+                p_res = p_res.next
 
-            pre.next = ListNode(p1.val)
-            pre.next.next = p2
+            pre.next = ListNode(p_ori.val)
+            pre.next.next = p_res
 
-            p1 = p1.next
+            p_ori = p_ori.next
         return res.next
 
 
