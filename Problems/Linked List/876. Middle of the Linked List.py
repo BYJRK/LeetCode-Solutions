@@ -25,3 +25,36 @@ class Solution:
         # 如果是偶数，比如 1 2 3 4 5 6，此时快指向 5，慢指向 3，则慢的下一个是结果
         else:
             return p1.next
+
+    def middleNode_v1(self, head: ListNode) -> ListNode:
+        """
+        传统方法，先遍历一遍，计算长度，然后第二遍找中点
+        """
+        length = 1
+        p = head
+        while p.next != None:
+            p = p.next
+            length += 1
+
+        p = head
+        for _ in range(length // 2):
+            p = p.next
+
+        return p
+
+
+def create_list(*nums):
+    head = ListNode()
+    p = head
+    for n in nums:
+        p.next = ListNode()
+        p = p.next
+        p.val = n
+    return head.next
+
+
+list1 = create_list(1, 2, 3, 4, 5, 6, 7)
+list2 = create_list(1, 2, 3, 4, 5, 6, 7, 8)
+s = Solution()
+print(s.middleNode(list1).val)
+print(s.middleNode(list2).val)

@@ -1,5 +1,8 @@
 # https://leetcode.com/problems/ugly-number-ii/
 
+import heapq
+
+
 class Solution:
     def nthUglyNumber(self, n: int) -> int:
         res = [1]
@@ -26,6 +29,26 @@ class Solution:
                 p5 += 1
         return dp[-1]
 
+    def nthUglyNumber_v2(self, n: int) -> int:
+        heap = [1]
+        ans = []
+        seen = set()
+        while len(ans) < n:
+            h = heapq.heappop(heap)
+            ans.append(h)
+            a, b, c = 2 * h, 3 * h, 5 * h
+            if a not in seen:
+                seen.add(a)
+                heapq.heappush(heap, a)
+            if b not in seen:
+                seen.add(b)
+                heapq.heappush(heap, b)
+            if c not in seen:
+                seen.add(c)
+                heapq.heappush(heap, c)
+        return ans[-1]
+
+
 #    2 3 5
 # 1  0 0 0
 # 2  1 0 0
@@ -36,6 +59,6 @@ class Solution:
 # 8  3 0 0
 # 9  0 2 0
 # 10 1 0 1
-
 s = Solution()
-print(s.nthUglyNumber_v1(100))  # 12
+print(s.nthUglyNumber_v2(10))  # 12
+print(s.nthUglyNumber_v2(100))  # 1536
