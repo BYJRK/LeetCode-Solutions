@@ -8,7 +8,7 @@ A bunch of LeetCode problems and their solution (in Python 3.8)
 |Catagory            |Count|
 |--------------------|-----|
 |Binary Tree         |20   |
-|Breath First Search |2    |
+|Breath First Search |4    |
 |Depth First Search  |12   |
 |Dynamic Programming |27   |
 |Easy                |1    |
@@ -16,5 +16,5 @@ A bunch of LeetCode problems and their solution (in Python 3.8)
 |Miscellaneous       |9    |
 |String              |7    |
 |Tricky              |8    |
-|Total               |96   |
+|Total               |98   |
 
