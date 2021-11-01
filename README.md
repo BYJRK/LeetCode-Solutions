@@ -15,6 +15,7 @@ A bunch of LeetCode problems and their solution (in Python 3.8)
 |Linked List         |10   |
 |Miscellaneous       |9    |
 |String              |7    |
-|Tricky              |8    |
-|Total               |98   |
+|Tricky              |7    |
+|Two Pointers        |3    |
+|Total               |100  |
 
